@@ -3,7 +3,7 @@ const drop = $('drop'), input = $('file'), panel = $('panel'), status = $('statu
 /* Paste the address of your converter server here (see the converter-server folder).
    Example: const CONVERTER_URL = 'https://your-converter.onrender.com';
    Leave it empty to use the browser-only Word to PDF (page count can differ from Word). */
-const CONVERTER_URL = 'https://something.onrender.com';
+const CONVERTER_URL = 'https://pdf-word-converter-3z6s.onrender.com';
 
 let file = null, dir = 'pdf2docx';
 
