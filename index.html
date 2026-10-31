@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF ⇄ Word Converter</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<main class="glass">
+  <button id="theme" class="theme" type="button" aria-label="Switch light or dark theme"></button>
+  <h1>PDF ⇄ Word</h1>
+  <p class="sub" id="sub">Convert in your browser. Your files are never uploaded.</p>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" class="tab on" data-dir="pdf2docx" aria-selected="true">PDF to Word</button>
+    <button role="tab" class="tab" data-dir="docx2pdf" aria-selected="false">Word to PDF</button>
+  </div>
+
+  <label class="drop" id="drop" tabindex="0">
+    <strong id="dropTitle">Choose a PDF or drop it here</strong>
+    <span id="dropHint">Spacing, images and layout are kept</span>
+    <input type="file" id="file" accept="application/pdf,.pdf">
+  </label>
+
+  <section id="panel" aria-live="polite">
+    <div id="fname"></div>
+    <fieldset class="modes" id="modes">
+      <label><input type="radio" name="mode" value="exact" checked>
+        <span><b>Exact look</b>Every page matches the PDF, including images and spacing. Text can't be edited.</span></label>
+      <label><input type="radio" name="mode" value="text">
+        <span><b>Editable text</b>Text can be edited in Word. Images and layout are not kept.</span></label>
+    </fieldset>
+    <div class="bar"><i id="prog"></i></div>
+    <div id="status"></div>
+    <a id="dl" class="dl" hidden>Download</a>
+    <button id="go">Convert</button><button class="ghost" id="reset">Choose another</button>
+  </section>
+</main>
+<div id="render" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docx-preview@0.3.2/dist/docx-preview.min.js"></script>
+<script>window.docxPreview = window.docxPreview || window.docx; try { delete window.docx; } catch (e) { window.docx = undefined; }</script>
+<script src="https://cdn.jsdelivr.net/npm/docx@7.8.2/build/index.js"></script>
+<script>window.docxLib = window.docx;</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
